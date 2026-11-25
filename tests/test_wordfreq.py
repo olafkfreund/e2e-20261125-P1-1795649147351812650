@@ -283,7 +283,8 @@ def test_python_m_wordfreq_case_sensitive() -> None:
 def test_python_m_wordfreq_json_output() -> None:
     result = _run_module(["--json"], "a\n")
     assert result.returncode == 0
-    assert result.stdout == json.dumps([{"word": "a", "count": 1}], indent=2) + "\n"
+    assert result.stdout == json.dumps([{"word": "a", "count": 1}]) + "\n"
+    assert result.stdout.count("\n") == 1
 
 
 def test_python_m_wordfreq_invalid_argument_returns_2() -> None:

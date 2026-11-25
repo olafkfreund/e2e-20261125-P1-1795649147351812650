@@ -138,7 +138,7 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     if args.json:
         payload = [{"word": word, "count": count} for word, count in rows]
-        sys.stdout.write(json.dumps(payload, indent=2) + "\n")
+        sys.stdout.write(json.dumps(payload) + "\n")
         return 0
 
     table = format_table(rows)
